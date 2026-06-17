@@ -12,7 +12,7 @@ lazy val model = project
 
     scalaVersion := scala3Version,
     libraryDependencies += "com.github.scopt" %% "scopt" % "4.1.0" cross(CrossVersion.for3Use2_13),
-    libraryDependencies += "com.github.pathikrit" %% "better-files" % "3.9.2" cross(CrossVersion.for3Use2_13),
+    libraryDependencies += "com.github.pathikrit" %% "better-files" % "3.9.2",
     libraryDependencies += "org.apache.commons" % "commons-math3" % "3.6.1",
 
     libraryDependencies ++= Seq(
