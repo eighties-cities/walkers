@@ -2,7 +2,7 @@
 val scala3Version = "3.8.4"
 val walkerVersion = "0.1.0"
 
-val bytePackVersion = "0.10"
+val bytePackVersion = "4939c6be7e"
 
 lazy val model = project
   .in(file("model"))
@@ -31,10 +31,10 @@ lazy val model = project
       //"io.circe" %% "circe-generic-extras"
     ).map(_ % "0.14.9"),
 
-    resolvers ++= Resolver.sonatypeOssRepos("snapshots"),
-    resolvers ++= Resolver.sonatypeOssRepos("staging"),
-    libraryDependencies += "org.openmole" %% "byte-pack" % bytePackVersion,
-    libraryDependencies += "org.openmole" %% "byte-pack-monocle" % bytePackVersion,
+
+    resolvers += "jitpack" at "https://jitpack.io",
+    libraryDependencies += "com.github.openmole.byte-pack" %% "byte-pack" % bytePackVersion,
+    libraryDependencies += "com.github.openmole.byte-pack" %% "byte-pack-monocle" % bytePackVersion,
     libraryDependencies += "org.apache.commons" % "commons-compress" % "1.28.0",
     libraryDependencies += "org.tukaani" % "xz" % "1.12",
 
