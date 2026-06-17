@@ -1,6 +1,6 @@
 
 val scala3Version = "3.8.4"
-val walkerVersion = "0.1.0"
+val walkersVersion = "0.1.0"
 
 val bytePackVersion = "4939c6be7e"
 
@@ -8,7 +8,7 @@ lazy val model = project
   .in(file("model"))
   .settings(
     name := "model",
-    version := walkerVersion,
+    version := walkersVersion,
 
     scalaVersion := scala3Version,
     libraryDependencies += "com.github.scopt" %% "scopt" % "4.1.0" cross(CrossVersion.for3Use2_13),
