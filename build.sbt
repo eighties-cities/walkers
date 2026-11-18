@@ -1,16 +1,15 @@
 
-val scala3Version = "3.8.4"
-val walkersVersion = "0.1.0"
+val bytePackVersion = "aac91e43dc"
 
-val bytePackVersion = "4939c6be7e"
+ThisBuild / version := "0.1.0"
+ThisBuild / scalaVersion := "3.9.0"
+
 
 lazy val model = project
   .in(file("model"))
   .settings(
     name := "model",
-    version := walkersVersion,
 
-    scalaVersion := scala3Version,
     libraryDependencies += "com.github.scopt" %% "scopt" % "4.1.0" cross(CrossVersion.for3Use2_13),
     libraryDependencies += "com.github.pathikrit" %% "better-files" % "3.9.2",
     libraryDependencies += "org.apache.commons" % "commons-math3" % "3.6.1",
@@ -35,10 +34,17 @@ lazy val model = project
     resolvers += "jitpack" at "https://jitpack.io",
     libraryDependencies += "com.github.openmole.byte-pack" %% "byte-pack" % bytePackVersion,
     libraryDependencies += "com.github.openmole.byte-pack" %% "byte-pack-monocle" % bytePackVersion,
+    libraryDependencies += "com.github.openmole.byte-pack" %% "byte-pack-file" % bytePackVersion,
     libraryDependencies += "org.apache.commons" % "commons-compress" % "1.28.0",
     libraryDependencies += "org.tukaani" % "xz" % "1.12",
 
-    assemblyPackageScala / assembleArtifact := false,
-    assemblyMergeStrategy := { _ => MergeStrategy.first }
+//    assemblyPackageScala / assembleArtifact := false,
+//    assemblyMergeStrategy := { _ => MergeStrategy.first }
   )
 
+
+lazy val prepare = project
+  .in(file("prepare"))
+  .settings(
+    name := "prepare"
+  ) dependsOn(model)
